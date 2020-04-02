@@ -7,3 +7,5 @@ export const HTTP_VERB = {
     PUT: 'PUT',
     DELETE: 'DELETE',
 };
+export const HACKER_NEWS_HEADERS = ["Hacker News", "New", "Past", "Comments"];
+export const LOGO_URL = "https://news.ycombinator.com/y18.gif";

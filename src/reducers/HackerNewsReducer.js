@@ -5,7 +5,6 @@ const initialState = {
 };
 
 export const HackerNewsReducer = (state = initialState, action = {}) => {
-    console.log("I am in reducer", action);
     switch (action.type) {
         case RENDER_HACKER_NEWS:
             return { ...state,  data: action.payload};
