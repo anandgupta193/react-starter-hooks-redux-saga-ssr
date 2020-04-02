@@ -9,6 +9,7 @@ const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getHackerNews({ name: "Anand Gupta from Store" }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
