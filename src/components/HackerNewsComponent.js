@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import './HackerNewsComponent.css';
 import { getHackerNews } from '../actions/HackerNewsActions';
+import './HackerNewsComponent.css';
 
 function HackerNews() {
-const hackerNewsData = useSelector(store => store.hackerNewsData);
+const hackerNewsData = useSelector(store => store.hackerNewsData.data);
 const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getHackerNews({ name: "Anand Gupta from Store" }));
+    dispatch(getHackerNews());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <div>
-      { hackerNewsData.name }
+      { JSON.stringify(hackerNewsData) }
     </div>
   );
 }

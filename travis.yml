@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+  - 10
+cache:
+  yarn: true
+  directories:
+    - node_modules
+env:
+  - CI=true
+jobs:
+  include:
+    - stage: 'Tests'
+      name: 'ES Lint'
+      script: yarn test:lint:js
+    - name: 'CSS Lint'
+      script: yarn test:lint:css
+    - name: 'Unit Test Execution'
+      script: yarn test
+    - stage: deployment
+      name: 'Deploy artifacts to Netlify'
+      before_deploy:
+        - yarn build
+        - npm install netlify-cli -g
+      deploy:
+        provider: script
+        script: netlify deploy -s $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN -p --dir ./build
+        skip_cleanup: true
+        on:
+          branch: master
