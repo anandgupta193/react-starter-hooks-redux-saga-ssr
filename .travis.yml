@@ -22,9 +22,13 @@ jobs:
     - yarn build
     - npm install netlify-cli -g
     deploy:
-      provider: script
-      script: netlify deploy -s $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN -p --dir
-        ./build
+      provider: netlify
+      site: $NETLIFY_SITE_ID
+      auth: $NETLIFY_ACCESS_TOKEN
+      edge: true
+      prod: true
+      dir: ./build
+      message: Netlify Deployment Started
       skip_cleanup: true
       on:
         branch: master
