@@ -10,13 +10,17 @@ const renderNews = ({ hits }) => {
   }
   return hits.map((article) => {
     return (
-      <div className="data-table-row" key={article.created_at_i}>
-        <div className="data-table-row-s-no">{ article.comments_count }.</div>
-        <div> {article.title} </div>
-        <div className="data-table-row-domain"><a href={article.domain}>({article.domain})</a></div>
-        <div className="data-table-row-padding">by</div>
-        <div className="data-table-row-user data-table-row-padding">{article.user} </div>
-        <div className="data-table-row-time-ago data-table-row-padding">{article.time_ago}</div>
+      <div className="data-table-common" key={article.created_at_i}>
+        <div className="data-table-row">
+          <div className="data-table-row-s-no">{ article.comments_count }.</div>
+          <div> {article.title} </div>
+        </div>
+        <div className="data-table-row data-table-inner-row">
+          <div className="data-table-row-domain"><a href={article.domain}>({article.domain})</a></div>
+          <div className="data-table-row-user data-table-row-padding">by</div>
+          <div className="data-table-row-user data-table-row-padding">{article.user} </div>
+          <div className="data-table-row-time-ago data-table-row-padding">{article.time_ago}</div>
+        </div>
       </div>
     );
   });

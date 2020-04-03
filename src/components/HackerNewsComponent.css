@@ -14,10 +14,13 @@
 
 .data-table-row {
     display: flex;
-    line-height: 35px;
     font-family: Verdana, Geneva, sans-serif;
     font-size: 10pt;
-    border-top: 0.5px solid black;
+}
+
+.data-table-common {
+    border-top: 0.2px solid silver;
+    line-height: 20px;
 }
 
 .data-table-row-s-no {
@@ -27,9 +30,17 @@
     color: #828282;
 }
 
+.data-table-row-user {
+    font-size: smaller;
+}
+
 .data-table-row-padding {
     padding-right: 2px;
     padding-left: 2px;
+}
+
+.data-table-inner-row {
+    padding-left: 20px;
 }
 
 .data-table-row-domain {
@@ -38,7 +49,7 @@
 }
 
 .data-table-row-time-ago {
-    color: silver;
+    color: #828282;
     font-size: x-small;
 }
 
