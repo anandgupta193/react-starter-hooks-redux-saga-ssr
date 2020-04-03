@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/anandgupta193/react-starter-hooks-redux-saga-ssr.svg?branch=master)](https://travis-ci.com/anandgupta193/react-starter-hooks-redux-saga-ssr)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1d1b8233-2897-4387-944f-aa6a2fc0ced8/deploy-status)](https://app.netlify.com/sites/xenodochial-shannon-8d9cf2/deploys)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
