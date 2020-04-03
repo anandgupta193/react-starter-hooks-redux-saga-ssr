@@ -10,10 +10,6 @@ env:
 jobs:
   include:
     - stage: 'Tests'
-      name: 'ES Lint'
-      script: yarn test:lint:js
-    - name: 'CSS Lint'
-      script: yarn test:lint:css
     - name: 'Unit Test Execution'
       script: yarn test
     - stage: deployment
