@@ -16,7 +16,7 @@ jobs:
   - stage: deployment
     name: Deploy artifacts to Netlify
     before_deploy:
-    - yarn dev:build-server
+    - yarn build
     - npm install netlify-cli -g
     deploy:
       provider: script
