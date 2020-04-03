@@ -30,7 +30,10 @@ const HackerNews = () => {
 const [startPage, setStartPage] = useState(1);
 const hackerNewsData = useSelector(store => store.hackerNewsData.data);
 const dispatch = useDispatch();
-console.log(hackerNewsData);
+if (typeof window === 'undefined') {
+  //handling for SSR
+  dispatch(getHackerNews({page: 1}));
+}
 
 const loadNextPageData = () => {
   setStartPage(startPage+1);
