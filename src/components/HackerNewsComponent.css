@@ -1,5 +1,5 @@
 .container {
-    background-color: rgb(246, 246, 239);
+    padding-bottom: 5%;
 }
 
 .data-table {
@@ -17,6 +17,7 @@
     line-height: 35px;
     font-family: Verdana, Geneva, sans-serif;
     font-size: 10pt;
+    border-top: 0.5px solid black;
 }
 
 .data-table-row-s-no {
@@ -24,4 +25,33 @@
     font-family: Verdana, Geneva, sans-serif;
     font-size: 10pt;
     color: #828282;
+}
+
+.data-table-row-padding {
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+.data-table-row-domain {
+    color: darkgray;
+    font-size: x-small;
+}
+
+.data-table-row-time-ago {
+    color: silver;
+    font-size: x-small;
+}
+
+.load-more {
+    margin-top: 40px;
+}
+
+.pagination-nav {
+    padding-right: 3px;
+    padding-left: 3px;
+}
+
+.loader {
+    text-align: center;
+    font-size: xx-large;
 }

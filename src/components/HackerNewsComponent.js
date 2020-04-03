@@ -1,28 +1,40 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getHackerNews } from '../actions/HackerNewsActions';
-import { HACKER_NEWS_HEADERS, LOGO_URL } from '../Utils/Constant';
+import { HACKER_NEWS_HEADERS, LOGO_URL, LOAD_MORE, LOADING_DATA } from '../Utils/Constant';
 import './HackerNewsComponent.css';
 
-function renderNews({ hits }) {
-  return hits.map((article, index) => {
+const renderNews = ({ hits }) => {
+  if (hits.length === 0) {
+    return <div className="loader" >{LOADING_DATA}</div>
+  }
+  return hits.map((article) => {
     return (
       <div className="data-table-row" key={article.created_at_i}>
-        <div className="data-table-row-s-no">{ index+1 }.</div>
-        <div>
-          {article.title}
-        </div>
+        <div className="data-table-row-s-no">{ article.comments_count }.</div>
+        <div> {article.title} </div>
+        <div className="data-table-row-domain"><a href={article.domain}>({article.domain})</a></div>
+        <div className="data-table-row-padding">by</div>
+        <div className="data-table-row-user data-table-row-padding">{article.user} </div>
+        <div className="data-table-row-time-ago data-table-row-padding">{article.time_ago}</div>
       </div>
     );
   });
 }
 
-function HackerNews() {
+const HackerNews = () => {
+const [startPage, setStartPage] = useState(1);
 const hackerNewsData = useSelector(store => store.hackerNewsData.data);
 const dispatch = useDispatch();
+console.log(hackerNewsData);
+
+const loadNextPageData = () => {
+  setStartPage(startPage+1);
+  dispatch(getHackerNews({page: startPage}));
+}
 
   useEffect(() => {
-    dispatch(getHackerNews());
+    dispatch(getHackerNews({page: 1}));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -38,6 +50,12 @@ const dispatch = useDispatch();
       </table>
       <div className="data-table">
         { hackerNewsData && renderNews(hackerNewsData) }
+      </div>
+      <div className="load-more">
+        {
+          hackerNewsData.hits.length > 0 &&
+          <button onClick={loadNextPageData}>{LOAD_MORE}</button>
+        }
       </div>
     </div>
   );

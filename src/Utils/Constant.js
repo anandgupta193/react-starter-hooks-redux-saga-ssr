@@ -7,5 +7,8 @@ export const HTTP_VERB = {
     PUT: 'PUT',
     DELETE: 'DELETE',
 };
-export const HACKER_NEWS_HEADERS = ["Hacker News", "New", "Past", "Comments"];
-export const LOGO_URL = "https://news.ycombinator.com/y18.gif";
+export const HACKER_NEWS_HEADERS = ['Hacker News', 'New', 'Past', 'Comments'];
+export const LOGO_URL = 'https://news.ycombinator.com/y18.gif';
+export const USE_MOCK_APIS = true;
+export const LOAD_MORE = 'Load More';
+export const LOADING_DATA = 'Loading Data...';

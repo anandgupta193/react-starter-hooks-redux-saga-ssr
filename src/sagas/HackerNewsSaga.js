@@ -4,8 +4,9 @@ import { GET_FEEDS } from '../Utils/Constant';
 import { RestClient } from '../Utils/RestClient';
 
 function* getHackerNewsSaga(action) {
+    const appendParams = action.payload.page ? '?page=' + action.payload.page : '';
     const requestObject = {
-        url: GET_FEEDS
+        url: GET_FEEDS + appendParams,
     };
     const response = yield call(RestClient.get, requestObject);
     yield put({ type: RENDER_HACKER_NEWS, payload: response });
